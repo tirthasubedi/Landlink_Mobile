@@ -16,6 +16,7 @@ body {
 body * {
   font-size: 14pt;
   line-height: 1.7;
+  text-align: center;
 }
 
 form:not(input) {
@@ -24,7 +25,10 @@ form:not(input) {
 
 input {
   padding: 8px;
-  width: 100%;
+}
+
+p {
+  text-align: left;
 }
 
 #logoDiv {

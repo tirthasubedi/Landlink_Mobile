@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
-This is a template html file!
-<h1>Hello, user!!</h1>
+
+<form>
+  Username: <input type="text" /> <br />
+  Password: <input type="password" /> <br />
+  <input type="submit" value="LOG IN"/>
+</form>
 <br />
-<a href="/about">Link To About</a>
+
+<a href="/about">Link to the about page</a>
+
 {% endblock %}
