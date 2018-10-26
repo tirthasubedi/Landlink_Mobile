@@ -2,13 +2,12 @@
 
 {% block body %}
 
-<form>
-  Username: <input type="text" /> <br />
-  Password: <input type="password" /> <br />
+<form action="/about" method="post"> <!-- Send data to post -->
+  Username: <input type="text" name="email" /> <br />
+  Password: <input type="password" name="password" /> <br />
   <input type="submit" value="LOG IN"/>
 </form>
 <br />
-
 <a href="/about">Link to the about page</a>
 
 {% endblock %}
