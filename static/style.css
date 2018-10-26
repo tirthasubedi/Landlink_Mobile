@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+:root {
+  --cfa-green: #8DC63F;
+  --cfa-blue: #70CDE3;
+  --cfa-violet: #332A86;
+  --cfa-teal: #73C6A1;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 16pt;
+  color: var(--cfa-violet);
+}
+
+body * {
+  font-size: 14pt;
+  line-height: 1.7;
+}
+
+form:not(input) {
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+}
+
+#logoDiv {
+  width: 100%;
+  text-align: center;
+}
+
+#logo {
+  max-width: 30%;
+  max-height:100px;
+  text-align: center;
+}
