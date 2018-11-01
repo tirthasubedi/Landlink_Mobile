@@ -2,13 +2,15 @@
 
 {% block body %}
 
-<form>
-  Username: <input type="text" /> <br />
-  Password: <input type="password" /> <br />
-  <input type="submit" value="LOG IN"/>
+<form action="/sampleQuestion">
+  <div class="form-group">
+  <input type="text" placeholder="email" /> <br />
+  <input type="password" placeholder="password" /> <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
 <br />
-
+<hr />
 <a href="/about">Link to the about page</a>
 
 {% endblock %}
