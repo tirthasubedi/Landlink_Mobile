@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form action="/sampleQuestion">
+  <div class="form-group">
+  <input type="text" placeholder="email" /> <br />
+  <input type="password" placeholder="password" /> <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+<br />
+<hr />
+<a href="/about">Link to the about page</a>
+
+{% endblock %}
