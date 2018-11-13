@@ -7,7 +7,7 @@ from index import *
 from forgotPassword import *
 from confirmedSent import *
 from createAccount import *
-from accountCreated import *y
+from accountCreated import *
 
 
 
