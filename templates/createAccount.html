@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Create your account here.</h1>
+
+<form action="/accountCreated">
+  <div class="form-group">
+  <input type="text" placeholder="Enter your email" /> <br />
+  <input type="text" placeholder="What is your first name?" /> <br />
+  <input type="text" placeholder="What is your last name?" /> <br />
+  <input type="text" placeholder="Street address 1" /> <br />
+  <input type="text" placeholder="Street address 2" /> <br />
+  <input type="text" placeholder="State?" /> <br />
+  <input type="text" placeholder="City?" /> <br />
+  <input type="text" placeholder="Zip Code" /> <br />
+  <input type="text" placeholder="What is your phone number?" /> <br />
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<a href="/">Link to the main page</a>
+
+{% endblock %}
