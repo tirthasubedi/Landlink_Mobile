@@ -1,6 +1,4 @@
 from app import *
-from flask import render_template
-from connect import connect
 
 @app.route('/about')
 

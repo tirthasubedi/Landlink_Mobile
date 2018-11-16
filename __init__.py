@@ -9,8 +9,6 @@ from confirmedSent import *
 from createAccount import *
 from accountCreated import *
 
-
-
 if __name__ == '__main__':
     app.secret_key="Secret key"
     app.run(debug = True)
