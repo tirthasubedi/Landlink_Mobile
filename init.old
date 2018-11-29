@@ -12,16 +12,6 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/about')
-def about():
-    conn, cur = connect()
-    query = "SELECT * FROM Applicants"
-    cur.execute(query)
-
-    qResult = cur.fetchall()
-    conn.close()
-    return render_template("about.html",result=qResult[0][0])
-
 @app.route('/sampleQuestion')
 def sampleQuestion():
     return render_template("sampleQuestion.html")
@@ -42,5 +32,16 @@ def confirmedSent():
 def accountCreated():
     return render_template("accountCreated.html")
 
-if __name__ == "__main__":
+@app.route('/about')
+def about():
+    conn, cur = connect()
+    query = "SELECT * FROM Applicants"
+    cur.execute(query)
+
+    qResult = cur.fetchall()
+    conn.close()
+    return render_template("about.html",result=qResult)
+
+if __name__ == '__main__':
+    app.secret_key="Secret key"
     app.run(debug = True)
