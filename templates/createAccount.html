@@ -7,13 +7,17 @@
 <form method="POST" action="/accountCreated">
   <div class="form-group">
   <input type="text" placeholder="email address" name="Email" /> <br />
+  <input type="text" placeholder="password" name="Password" /> <br />
   <input type="text" placeholder="full name" name="Name" /> <br />
   <input type="text" placeholder="Street address" name="Address" /> <br />
   <input type="text" placeholder="state" name="State" /> <br />
   <input type="text" placeholder="city" name="City" /> <br />
-  <input type="text" placeholder="zip code" name="Zip Code" /> <br />
+  <input type="text" placeholder="zip code" name="ZipCode" /> <br />
   <input type="text" placeholder="phone number" name="Phone" /> <br />
-
+  <select name="isFarmer">
+	<option value='0'>Land Owner</option>
+	<option value='1'>Land Seeker</option>
+  </select>
   <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
