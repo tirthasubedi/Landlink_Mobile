@@ -40,10 +40,8 @@ def confirmedSent():
 
 @app.route('/accountCreated',methods=['GET','POST'])
 def accountCreated():
-    conn,cur = connect()
-
-    return render_template("accountCreated.html")
-    #return request.form['Email']
+    #return render_template("accountCreated.html")
+    return str(request.form.get[)
 
 if __name__ == "__main__":
     app.run(debug = True)
