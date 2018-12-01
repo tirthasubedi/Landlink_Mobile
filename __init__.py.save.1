@@ -68,35 +68,12 @@ def landOwnerSurvey():
 def landSeekerSurvey():
     return render_template('landSeekerSurvey.html')
 
-@app.route('/displayOwner' ,methods=['GET','POST'])
-def dispOwner():
-    fields = ['terms','other_desc','street','city','zip','region','acres','pasture',
-    'tillable','woodland','housing_desc','goals','veg_hort','beef','dairy','poultry',
-    'hogs','goats','sheep','horses','aqua','tobacco','row','rent_lease','purchase',
-    'equipment_desc','irrigation']
+@app.route('/displayOwner', methods=['GET','POST'])
+def  dispOwner():
 
-    responses=[]
-
-    for field in fields:
-        if field in request.values.keys():
-                if request.values[field] == 'on':
-                        responses.append('1')
-                else:
-                        responses.append(str(request.values[field]))
-        else:
-                responses.append('0')
-
-    formatFields="`owner_ID`, "+str(fields)[1:-1].replace("'","`")
-    formatResponses="NULL, "+str(responses)[1:-1]
-    query = "INSERT INTO `Landowners` ({0}) VALUES ({1});".format(formatFields,formatResponses)
-
-    conn, cur = connect()
-    cur.execute(query)
-    conn.commit()
-    conn.close()
-
-    return query
-
+    fields = ['terms','other_desc','street','city','zip','region','acres','pasture','tillable',
+    'woodland', 'housing_desc', 'goals', 'veg_hort', 'beef', 'dairy', 'poultry', 'hogs', 'goats'
+    'sheet']
 
 @app.route('/displaySeeker',methods=['GET','POST'])
 def dispSeeker():
@@ -120,11 +97,6 @@ def dispSeeker():
     formatFields="`farmer_ID`, "+str(fields)[1:-1].replace("'","`")
     formatResponses="NULL, "+str(responses)[1:-1]
     query = "INSERT INTO `Farmers` ({0}) VALUES ({1});".format(formatFields,formatResponses)
-
-    conn, cur = connect()
-    cur.execute(query)
-    conn.commit()
-    conn.close()
 
     return query
 

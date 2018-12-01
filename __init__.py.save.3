@@ -68,65 +68,12 @@ def landOwnerSurvey():
 def landSeekerSurvey():
     return render_template('landSeekerSurvey.html')
 
-@app.route('/displayOwner' ,methods=['GET','POST'])
-def dispOwner():
-    fields = ['terms','other_desc','street','city','zip','region','acres','pasture',
-    'tillable','woodland','housing_desc','goals','veg_hort','beef','dairy','poultry',
-    'hogs','goats','sheep','horses','aqua','tobacco','row','rent_lease','purchase',
-    'equipment_desc','irrigation']
-
-    responses=[]
-
-    for field in fields:
-        if field in request.values.keys():
-                if request.values[field] == 'on':
-                        responses.append('1')
-                else:
-                        responses.append(str(request.values[field]))
-        else:
-                responses.append('0')
-
-    formatFields="`owner_ID`, "+str(fields)[1:-1].replace("'","`")
-    formatResponses="NULL, "+str(responses)[1:-1]
-    query = "INSERT INTO `Landowners` ({0}) VALUES ({1});".format(formatFields,formatResponses)
-
-    conn, cur = connect()
-    cur.execute(query)
-    conn.commit()
-    conn.close()
-
-    return query
-
-
-@app.route('/displaySeeker',methods=['GET','POST'])
-def dispSeeker():
-
-    fields = ['terms','amt_tillable','amt_pasture','organic','housing_desc','eq_storage','livestock_barn',
-    'stables', 'greenhouse', 'desc_equip', 'irrigation', 'education', 'veg_horticulture',
-    'cattle_beef', 'dairy', 'poultry', 'hogs', 'goats', 'sheep', 'horses', 'aqua', 'tobacco', 'row_crops',
-    'rent_lease', 'purchase', 'location', 'goals', 'where_farming', 'how_sell']
-
-    responses = []
-
-    for field in fields:
-	if field in request.values.keys():
-		if request.values[field] == 'on':
-			responses.append('1')
-		else:
-			responses.append(str(request.values[field]))
-	else:
-		responses.append('0')
-
-    formatFields="`farmer_ID`, "+str(fields)[1:-1].replace("'","`")
-    formatResponses="NULL, "+str(responses)[1:-1]
-    query = "INSERT INTO `Farmers` ({0}) VALUES ({1});".format(formatFields,formatResponses)
-
-    conn, cur = connect()
-    cur.execute(query)
-    conn.commit()
-    conn.close()
-
-    return query
+@app.route('/displayPOST',methods=['GET','POST'])
+def postTest():
+    args = "INSERT INTO 'Farmers' "
+    for key,val in request.values.items():
+	args=args+str(key)+" "+s
+    return args
 
 if __name__ == "__main__":
     app.run(debug = True)

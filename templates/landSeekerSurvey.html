@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form action="/displaySeeker">
+  <div class="form-group">
+	<h2>What are you looking for?</h2>
+	<input type="radio" name="terms" value="Rent/Lease"> Rent or Lease <br>
+	<input type="radio" name="terms" value="Sell"> Sell          <br>
+	<input type="radio" name="terms" value="Intern/Apprentice"> Internship or Apprenticeship <br>
+	<!-- ADD OTHER OPTION -->
+	<hr>
+	<h2>What region is your farm in?</h2>
+	<input type="radio" name="location" value="North KY"> Northern Kentucky <br>
+	<input type="radio" name="location" value="Central KY"> Central Kentucky  <br>
+	<input type="radio" name="location" value="West KY"> Western Kentucky  <br>
+	<input type="radio" name="location" value="East KY"> Eastern Kentucky  <br>
+	<!-- ADD IMAGE HERE -->
+	<hr>
+	<h2>Farmland</h2>
+	Acres of Pasture: <input type="num" name="amt_pasture"> <br>
+	Acres Tillable: <input type="num" name="amt_tillable">  <br>
+	<input type="checkbox" name="organic"> Certified Organic?  <br>
+	<hr>
+	<h2>Is Housing Available?</h2>
+	If so, describe <input type="text" name="housing_desc"> <br>
+	<hr>
+	<h2>Please describe your long term goals for the farming (100 words or less):</h2>
+	<textarea name="goals"></textarea> <br>
+	<!-- ADD IMAGE UPLOAD -->
+	<hr>
+	<h2>Current or past farming endeavors</h2>
+	<input type="radio" name="veg_horticulture"> Vegetables/Horticulture <br>
+	<input type="radio" name="cattle_beef"> Beef <br>
+	<input type="radio" name="dairy"> Dairy <br>
+	<input type="radio" name="poultry"> Poultry <br>
+	<input type="radio" name="hogs"> Hogs <br>
+	<input type="radio" name="goats"> Goats <br>
+	<input type="radio" name="sheep"> Sheep <br>
+	<input type="radio" name="horses"> Horses <br>
+	<input type="radio" name="aqua"> Aquaculture <br>
+	<input type="radio" name="tobacco"> Tobacco <br>
+	<input type="radio" name="row_crops"> Row Crops <br>
+	<hr>
+	Rent Lease Agreement: <select name="rent_lease">
+	<option value="none">I'm not interested in leasing</option>
+	<option value="shortTerm">Short Term (Less than 2 years</option>
+	<option value="longTerm">Long Term (More than 5 years</option>
+	</select> <br>
+	Purchase Arrangement <select name="purchase">
+	<option value="none">I'm not interested in buying</option>
+	<option value="leaseToOwn">Lease to own</option>
+	<option value="forSale">For Sale Only</option>
+	<option value="landContract">Land Contract</option>
+	<option value="other">Other</option>
+	</select> <br>
+	<hr>
+	<h2>Equipment Needed?</h2>
+	If so, describe: <textarea name="desc_equip"> </textarea> <br>
+	<input type="checkbox" name="irrigation">Irrigation Available?
+	<hr>
+	<h2>Education</h2>
+	<input type="radio" name="education" value="highSchool"> Highschool Graduate <br>
+	<input type="radio" name="education" value="someCollege"> Some College <br>
+	<input type="radio" name="education" value="collegeGrad"> College Graduate <br>
+	<input type="radio" name="education" value="other"> Other <br>
+	<hr>
+	<h2>Where are you currently farming?</h2>
+	<textarea name="where_farming"> </textarea>
+	<hr>
+	<h2>How do you sell your products</h2>
+	<textarea name="how_sell"> </textarea>
+	<hr>
+	<input type="submit">
+  </div>
+</form>
+<br />
+<hr />
+{% endblock %}

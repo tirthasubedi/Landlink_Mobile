@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form action="/sampleQuestion">
+  <div class="form-group">
+	<h2>What are you looking for?</h2>
+	<input type="radio" name="terms"> Rent or Lease <br>
+	<input type="radio" name="terms"> Sell          <br>
+	<input type="radio" name="terms"> Internship or Apprenticeship <br>
+	<!-- ADD OTHER OPTION -->
+	<hr>
+	<h2>Location</h2>
+	Street: <input type="text" name="street"> <br>
+	City:   <input type="text" name="city">   <br>
+	ZipCode <input type="text" name="zip">    <br>
+	<hr>
+	<h2>What region is your farm in?</h2>
+	<input type="radio" name="region"> Northern Kentucky <br>
+	<input type="radio" name="region"> Central Kentucky  <br>
+	<input type="radio" name="region"> Western Kentucky  <br>
+	<input type="radio" name="region"> Eastern Kentucky  <br>
+	<!-- ADD IMAGE HERE -->
+	<hr>
+	<h2>Farmland</h2>
+	Total Acres: <input type="num" name="acres"> <br>
+	Acres of Pasture: <input type="num" name="pasture"> <br>
+	Acres Tillable: <input type="num" name="tillable">  <br>
+	Acres of Woodland: <input type="num" name="woodland"> <br>
+	<hr>
+	<h2>Is Housing Available?</h2>
+	If so, describe <input type="text" name="housing_desc"> <br>
+	<hr>
+	<h2>Please describe your long term goals for the land (100 words or less):</h2>
+	<input type="text" name="goals"> <br> <!-- ADD RESIZING FOR INPUT -->
+	<!-- ADD IMAGE UPLOAD -->
+	<hr>
+	<h2>Current or past farming endeavors</h2>
+	<input type="radio" name="veg_hort"> Vegetables/Horticulture <br>
+	<input type="radio" name="beef"> Beef <br>
+	<input type="radio" name="dairy"> Dairy <br>
+	<input type="radio" name="poultry"> Poultry <br>
+	<input type="radio" name="hogs"> Hogs <br>
+	<input type="radio" name="goats"> Goats <br>
+	<input type="radio" name="sheep"> Sheep <br>
+	<input type="radio" name="horses"> Horses <br>
+	<input type="radio" name="aqua"> Aquaculture <br>
+	<input type="radio" name="tobacco"> Tobacco <br>
+	<input type="radio" name="row"> Row Crops <br>
+	<hr>
+	Rent Lease Agreement: <select name="rent_lease">
+	<option value="none">I'm not interested in leasing</option>
+	<option value="shortTerm">Short Term (Less than 2 years</option>
+	<option value="longTerm">Long Term (More than 5 years</option>
+	</select> <br>
+	Purchase Arrangement <select name="purchase">
+	<option value="none">I'm not interested in selling</option>
+	<option value="leaseToOwn">Lease to own</option>
+	<option value="forSale">For Sale Only</option>
+	<option value="landContract">Land Contract</option>
+	<option value="other">Other</option>
+	</select> <br>
+	<hr>
+	<h2>Equipment Available</h2>
+	If so, describe: <input type="text" name="equipment_desc">
+	<input type="radio" name="irrigation">Irrigation Available</h2>
+	
+  </div>
+</form>
+<br />
+<hr />
+<a href="/about">Link to the about page</a>
+<a href="/forgotPassword">Forgot password?</a>
+<a href="/createAccount"> Need to create an account?</a>
+{% endblock %}
