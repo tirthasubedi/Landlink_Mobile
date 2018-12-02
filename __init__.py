@@ -50,15 +50,25 @@ def accountCreated():
     data['Address'] = request.form.get('Address')
     data['State'] = request.form.get('State')
     data['City'] = request.form.get('City')
-    data['ZipCode'] = int(request.form.get('ZipCode'))
-    data['Phone'] = int(request.form.get('Phone'))
-    data['isFarmer'] = int(request.form.get('isFarmer'))
+    try:
+    	data['ZipCode'] = int(request.form.get('ZipCode'))
+    	data['Phone'] = int(request.form.get('Phone'))
+    	data['isFarmer'] = int(request.form.get('isFarmer'))
+    except:
+	data['ZipCode'] = 0
+	data['Phone']   = 0
+	data['isFarmer'] = int(request.form.get('isFarmer'))
 
     query = "INSERT INTO `Applicants`(`Name`, `Email`, `Phone`, `Password`, `isFarmer`, `Address`, `State`, `City`, `ZipCode`, `ApplicantID`) VALUES ('{0}','{1}',{2},'{3}',{4},'{5}','{6}','{7}',{8},NULL)".format(data['Name'],data['Email'],data['Phone'],data['Password'],data['isFarmer'],data['Address'],data['State'],data['City'],data['ZipCode'])
     cur.execute(query)
     conn.commit()
-    conn.close()    
-    return render_template('accountCreated.html')
+    conn.close()
+ 
+    #return render_template('accountCreated.html')
+    if data['isFarmer']==1:
+	return render_template('landOwnerSurvey.html')
+    else:
+	return render_template('landSeekerSurvey.html')
 
 @app.route('/landOwnerSurvey',methods=['GET','POST'])
 def landOwnerSurvey():
@@ -95,7 +105,7 @@ def dispOwner():
     conn.commit()
     conn.close()
 
-    return query
+    return render_template('accountCreated.html')
 
 
 @app.route('/displaySeeker',methods=['GET','POST'])
@@ -126,7 +136,7 @@ def dispSeeker():
     conn.commit()
     conn.close()
 
-    return query
+    return render_template('accountCreated.html')
 
 if __name__ == "__main__":
     app.run(debug = True)
