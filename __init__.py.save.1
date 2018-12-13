@@ -38,14 +38,10 @@ def logonVerify():
     page+='<table class="table table-striped">'
     for user in qResult:
 	page+="<tr>"
-	for item in user:
-	    page=page+"<td>"+str(item)+"</td>"
-	page=page+"</td>"
-
-    page+="</table>"
+	for item in 
 
     #return str(cur.rowcount)+" "+str(request.form.get('Email'))+" "+str(request.form.get('Password'))+" "+query
-    return render_template("viewUser.html",result=qResult)
+    return page
 
 @app.route('/sampleQuestion')
 def sampleQuestion():

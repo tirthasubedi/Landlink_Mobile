@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, session
+from flask import Flask, request, render_template, flash, redirect
 import MySQLdb
 
 def connect():
@@ -31,21 +31,10 @@ def logonVerify():
     qResult = cur.fetchall()
     conn.close()
 
-    if (cur.rowcount==0): # Run after failed login
-	return index()+"<script>alert('Failed Login');</script>"
-    
-    page = ""
-    page+='<table class="table table-striped">'
-    for user in qResult:
-	page+="<tr>"
-	for item in user:
-	    page=page+"<td>"+str(item)+"</td>"
-	page=page+"</td>"
+    if (cur.rowcount==0):
+	return 
 
-    page+="</table>"
-
-    #return str(cur.rowcount)+" "+str(request.form.get('Email'))+" "+str(request.form.get('Password'))+" "+query
-    return render_template("viewUser.html",result=qResult)
+    return str(cur.rowcount)+" "+str(request.form.get('Email'))+" "+str(request.form.get('Password'))+" "+query
 
 @app.route('/sampleQuestion')
 def sampleQuestion():

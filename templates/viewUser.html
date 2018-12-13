@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+<h1>Here's your current data!</h1>
+{% for user in result %}
+{% for item in user %}
+<h2 style="text-align: left; margin: 0; padding: 0;">{{item}}</h2> <br>
+{% endfor %}
+{% endfor %}
+</div>
+
+{% endblock %}

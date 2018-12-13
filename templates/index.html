@@ -2,16 +2,15 @@
 
 {% block body %}
 
-<form action="/sampleQuestion">
+<form action="/logonVerify" method="POST">
   <div class="form-group">
-  <input type="text" placeholder="Enter your email." /> <br />
-  <input type="password" placeholder="Enter your password" /> <br />
+  <input type="text" name="Email" placeholder="Enter your email" /> <br />
+  <input type="password" name="Password" placeholder="Enter your password" /> <br />
   <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 <br />
 <hr />
 <a href="/about">Link to the about page</a>
-<a href="/forgotPassword">Forgot password?</a>
 <a href="/createAccount"> Need to create an account?</a>
 {% endblock %}
