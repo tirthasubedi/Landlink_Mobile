@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, session
 import MySQLdb
 
+
+# Connection to the database
 def connect():
     conn = MySQLdb.connect(db="cfa", host="localhost", user="cfa", passwd="kKGP4ylKt9n1UJac", port=3306)
     cur = conn.cursor()
@@ -8,10 +10,12 @@ def connect():
 
 app = Flask(__name__)
 
+# The main login page
 @app.route('/')
 def index():
     return render_template("index.html")
 
+# The CFA about page
 @app.route('/about')
 def about():
     conn, cur = connect()
@@ -22,6 +26,7 @@ def about():
     conn.close()
     return render_template("about.html",result=qResult)
 
+# Verify the Login
 @app.route('/logonVerify',methods=['GET','POST'])
 def logonVerify():
     conn, cur = connect()
@@ -47,22 +52,27 @@ def logonVerify():
     #return str(cur.rowcount)+" "+str(request.form.get('Email'))+" "+str(request.form.get('Password'))+" "+query
     return render_template("viewUser.html",result=qResult)
 
+# A prototype sample question page for building additional forms
 @app.route('/sampleQuestion')
 def sampleQuestion():
     return render_template("sampleQuestion.html")
 
+# A not-yet-implemented forgot password page
 @app.route('/forgotPassword')
 def forgotPassword():
     return render_template("forgotPassword.html")
 
+# The Applicant creation page
 @app.route('/createAccount')
 def createAccount():
     return render_template("createAccount.html")
 
+# Show the completed survey
 @app.route('/confirmedSent')
 def confirmedSent():
     return render_template("confirmedSent.html")
 
+# Confirm account creation for applicant
 @app.route('/accountCreated',methods=['GET','POST'])
 def accountCreated():
     conn,cur = connect()
@@ -95,14 +105,17 @@ def accountCreated():
     else:
 	return render_template('landSeekerSurvey.html')
 
+# The Land Owner portion of the Survey
 @app.route('/landOwnerSurvey',methods=['GET','POST'])
 def landOwnerSurvey():
     return render_template('landOwnerSurvey.html')
 
+# The land seeker portion of the survey
 @app.route('/landSeekerSurvey',methods=['GET','POST'])
 def landSeekerSurvey():
     return render_template('landSeekerSurvey.html')
 
+# Display the Owners Data and send it to the database
 @app.route('/displayOwner' ,methods=['GET','POST'])
 def dispOwner():
     fields = ['terms','other_desc','street','city','zip','region','acres','pasture',
@@ -132,7 +145,7 @@ def dispOwner():
 
     return render_template('accountCreated.html')
 
-
+#Display the Seeker information to the database
 @app.route('/displaySeeker',methods=['GET','POST'])
 def dispSeeker():
 
@@ -162,6 +175,15 @@ def dispSeeker():
     conn.close()
 
     return render_template('accountCreated.html')
+
+# Update data after login
+@app.route('/updateData',methods=['GET','POST'])
+def updateData():
+    
+
+    conn, cur = connect()
+
+    return "Data Updated: "+request.values['item']+" to "+request.values['data']
 
 if __name__ == "__main__":
     app.run(debug = True)

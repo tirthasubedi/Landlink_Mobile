@@ -2,12 +2,15 @@
 
 {% block body %}
 <div class="container">
+<form method="POST" action="/updateData">
 <h1>Here's your current data!</h1>
 {% for user in result %}
 {% for item in user %}
-<h2 style="text-align: left; margin: 0; padding: 0;">{{item}}</h2> <br>
+<h2 style="text-align: left; margin: 0; padding: 0;">{{item}}</h2>
+<input type="text" name="data"> </input> <input name="item" value="{{item}}" type="submit"> </input> <br>
 {% endfor %}
 {% endfor %}
+</form>
 </div>
 
 {% endblock %}
